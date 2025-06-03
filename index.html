@@ -1,92 +1,783 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SAKSHAM WALIA 's Portfolio</title>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: #f8f9fa;
-    }
-    .project-card {
-      margin-bottom: 2rem;
-    }
-    .section-title {
-      margin-top: 4rem;
-    }
-  </style>
-</head>
-<body>
-  <div class="container py-5">
-    <header class="text-center mb-5">
-      <h1 class="fw-bold">👋 Hi, I'm S</h1>
-      <p class="lead">Full-stack Developer | AI & ML Enthusiast</p>
-    </header>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Saksham Walia's Portfolio</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
 
-    <section>
-      <h2 class="section-title">🚀 Projects</h2>
+      :root {
+        --primary-gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        --secondary-gradient: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+        --accent-gradient: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+        --dark-bg: #0a0a0a;
+        --card-bg: rgba(255, 255, 255, 0.05);
+        --text-primary: #ffffff;
+        --text-secondary: #a0a0a0;
+        --border-color: rgba(255, 255, 255, 0.1);
+      }
 
-      <div class="project-card">
-        <h4><a href="https://www.realhousekraft.co" target="_blank">🏠 Housekraft</a></h4>
-        <p>AI-powered interior design assistant using Flask, React, and InstructPix2Pix. Features Stripe payments, Google OAuth, and a double-entry database system.</p>
+      body {
+        font-family: "Inter", sans-serif;
+        background: var(--dark-bg);
+        color: var(--text-primary);
+        overflow-x: hidden;
+        line-height: 1.6;
+      }
+
+      /* Animated Background */
+      .bg-animation {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        background: linear-gradient(-45deg, #0a0a0a, #1a1a2e, #16213e, #0f172a);
+        background-size: 400% 400%;
+        animation: gradientShift 15s ease infinite;
+      }
+
+      .bg-animation::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(
+            circle at 20% 80%,
+            rgba(120, 119, 198, 0.3) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 80% 20%,
+            rgba(255, 119, 198, 0.3) 0%,
+            transparent 50%
+          ),
+          radial-gradient(
+            circle at 40% 40%,
+            rgba(120, 219, 255, 0.2) 0%,
+            transparent 50%
+          );
+        animation: float 20s ease-in-out infinite;
+      }
+
+      @keyframes gradientShift {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0px) rotate(0deg);
+        }
+        33% {
+          transform: translateY(-30px) rotate(1deg);
+        }
+        66% {
+          transform: translateY(-15px) rotate(-1deg);
+        }
+      }
+
+      /* Navigation */
+      .navbar {
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        padding: 1rem 0;
+        backdrop-filter: blur(20px);
+        background: rgba(10, 10, 10, 0.8);
+        border-bottom: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+
+      .navbar.scrolled {
+        padding: 0.5rem 0;
+        background: rgba(10, 10, 10, 0.95);
+      }
+
+      .nav-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      .logo {
+        font-size: 1.5rem;
+        font-weight: 800;
+        background: var(--primary-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .nav-links {
+        display: flex;
+        gap: 2rem;
+        list-style: none;
+      }
+
+      .nav-links a {
+        color: var(--text-secondary);
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        position: relative;
+      }
+
+      .nav-links a:hover {
+        color: var(--text-primary);
+      }
+
+      .nav-links a::after {
+        content: "";
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 0;
+        height: 2px;
+        background: var(--accent-gradient);
+        transition: width 0.3s ease;
+      }
+
+      .nav-links a:hover::after {
+        width: 100%;
+      }
+
+      /* Hero Section */
+      .hero {
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 2rem;
+        position: relative;
+      }
+
+      .hero-content {
+        max-width: 800px;
+        animation: fadeInUp 1s ease-out;
+      }
+
+      .hero-title {
+        font-size: clamp(3rem, 8vw, 6rem);
+        font-weight: 900;
+        margin-bottom: 1rem;
+        background: linear-gradient(135deg, #fff 0%, #a0a0a0 100%);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+        line-height: 1.1;
+      }
+
+      .hero-subtitle {
+        font-size: clamp(1.2rem, 3vw, 1.8rem);
+        color: var(--text-secondary);
+        margin-bottom: 2rem;
+        font-weight: 300;
+      }
+
+      .hero-description {
+        font-size: 1.2rem;
+        margin-bottom: 3rem;
+        color: var(--text-secondary);
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .cta-button {
+        display: inline-block;
+        padding: 1rem 2.5rem;
+        background: var(--primary-gradient);
+        color: white;
+        text-decoration: none;
+        border-radius: 50px;
+        font-weight: 600;
+        font-size: 1.1rem;
+        transition: all 0.3s ease;
+        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .cta-button:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 15px 40px rgba(102, 126, 234, 0.4);
+        color: white;
+      }
+
+      .cta-button::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          rgba(255, 255, 255, 0.2),
+          transparent
+        );
+        transition: left 0.5s ease;
+      }
+
+      .cta-button:hover::before {
+        left: 100%;
+      }
+
+      /* Container */
+      .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+      }
+
+      /* Section Styles */
+      .section {
+        padding: 6rem 0;
+        position: relative;
+      }
+
+      .section-title {
+        font-size: clamp(2.5rem, 5vw, 3.5rem);
+        font-weight: 800;
+        text-align: center;
+        margin-bottom: 4rem;
+        background: var(--primary-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      /* Projects Grid */
+      .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .project-card {
+        background: var(--card-bg);
+        border-radius: 20px;
+        padding: 2rem;
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+        position: relative;
+        overflow: hidden;
+        group: hover;
+      }
+
+      .project-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: var(--accent-gradient);
+        transform: scaleX(0);
+        transition: transform 0.3s ease;
+      }
+
+      .project-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .project-card:hover::before {
+        transform: scaleX(1);
+      }
+
+      .project-icon {
+        font-size: 2.5rem;
+        margin-bottom: 1rem;
+        display: block;
+      }
+
+      .project-title {
+        font-size: 1.4rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--text-primary);
+      }
+
+      .project-title a {
+        color: inherit;
+        text-decoration: none;
+        transition: all 0.3s ease;
+      }
+
+      .project-title a:hover {
+        background: var(--accent-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .project-description {
+        color: var(--text-secondary);
+        line-height: 1.6;
+        font-size: 0.95rem;
+      }
+
+      /* Tech Stack */
+      .tech-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-top: 3rem;
+      }
+
+      .tech-category {
+        background: var(--card-bg);
+        border-radius: 15px;
+        padding: 2rem;
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--border-color);
+        transition: all 0.3s ease;
+      }
+
+      .tech-category:hover {
+        transform: translateY(-5px);
+        border-color: rgba(255, 255, 255, 0.2);
+      }
+
+      .tech-category h3 {
+        font-size: 1.3rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        background: var(--secondary-gradient);
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .tech-list {
+        list-style: none;
+      }
+
+      .tech-list li {
+        padding: 0.5rem 0;
+        color: var(--text-secondary);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        transition: color 0.3s ease;
+      }
+
+      .tech-list li:hover {
+        color: var(--text-primary);
+      }
+
+      .tech-list li:last-child {
+        border-bottom: none;
+      }
+
+      /* Contact Section */
+      .contact-section {
+        text-align: center;
+        background: var(--card-bg);
+        border-radius: 20px;
+        padding: 4rem 2rem;
+        backdrop-filter: blur(20px);
+        border: 1px solid var(--border-color);
+        margin: 4rem 0;
+      }
+
+      .contact-links {
+        display: flex;
+        justify-content: center;
+        gap: 2rem;
+        flex-wrap: wrap;
+        margin-top: 2rem;
+      }
+
+      .contact-link {
+        padding: 1rem 2rem;
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 50px;
+        color: var(--text-primary);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 1px solid var(--border-color);
+        font-weight: 500;
+      }
+
+      .contact-link:hover {
+        background: var(--accent-gradient);
+        color: white;
+        transform: translateY(-3px);
+        box-shadow: 0 10px 20px rgba(79, 172, 254, 0.3);
+      }
+
+      /* Footer */
+      .footer {
+        text-align: center;
+        padding: 3rem 0;
+        border-top: 1px solid var(--border-color);
+        color: var(--text-secondary);
+      }
+
+      /* Animations */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .fade-in {
+        opacity: 0;
+        transform: translateY(30px);
+        transition: all 0.6s ease;
+      }
+
+      .fade-in.visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+
+        .projects-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .tech-grid {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-links {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .hero {
+          padding: 2rem 1rem;
+        }
+
+        .section {
+          padding: 4rem 0;
+        }
+      }
+
+      /* Scroll indicator */
+      .scroll-indicator {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: var(--accent-gradient);
+        transform-origin: left;
+        transform: scaleX(0);
+        z-index: 9999;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="bg-animation"></div>
+    <div class="scroll-indicator" id="scrollIndicator"></div>
+
+    <nav class="navbar" id="navbar">
+      <div class="nav-container">
+        <div class="logo">Saksham Walia</div>
+        <ul class="nav-links">
+          <li><a href="#home">Home</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#tech">Tech Stack</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
       </div>
+    </nav>
 
-      <div class="project-card">
-        <h4><a href="https://www.wear-what.com" target="_blank">🧥 WearWhat</a></h4>
-        <p>Live virtual try-on app with real-time pose detection. Built with Flask, React, OpenCV, and a double-entry session logging system.</p>
+    <section class="hero" id="home">
+      <div class="hero-content">
+        <h1 class="hero-title">Hi, I'm Saksham Walia</h1>
+        <p class="hero-subtitle">
+          Full-stack Developer • AI Models and API • Competetive Programmer •
+          Ubuntu Server (Dev DevOps)
+        </p>
+        <p class="hero-description">
+          Crafting exceptional digital experiences with cutting-edge technology
+          and innovative solutions
+        </p>
+        <a href="#projects" class="cta-button">Explore My Work</a>
       </div>
-
-      <div class="project-card">
-        <h4><a href="https://www.off-l.in" target="_blank">📦 OFFLIN</a></h4>
-        <p>Multi-platform media downloader using React and Puppeteer. Supports Instagram, Twitter, Facebook, and more.</p>
-      </div>
-
-      <div class="project-card">
-        <h4><a href="https://www.helpbuy.in" target="_blank">🛍 HelpBuy</a></h4>
-        <p>Product research assistant that compares products across multiple platforms using web scraping and React.</p>
-      </div>
-
-      <div class="project-card">
-        <h4><a href="https://app.omptpro" target="_blank">🧠 Prompt Enhancer – app.omptpro</a></h4>
-        <p>Prompt optimization tool with Elasticsearch for search and analytics. Deployed with full DevOps setup: Ubuntu, NGINX, Gunicorn, SSL, and domain linking.</p>
-      </div>
-
     </section>
 
-    <section>
-      <h2 class="section-title">⚙️ Deployment & DevOps</h2>
-      <p>All apps are deployed on Ubuntu servers with:</p>
-      <ul>
-        <li>NGINX reverse proxy</li>
-        <li>Gunicorn for WSGI app serving</li>
-        <li>Domain ↔ IP mapping</li>
-        <li>Let's Encrypt SSL certificates</li>
-        <li>Systemd process management</li>
-      </ul>
-    </section>
+    <div class="container">
+      <section class="section fade-in" id="projects">
+        <h2 class="section-title">🚀 Featured Projects</h2>
+        <div class="projects-grid">
+          <div class="project-card">
+            <div class="project-icon">🏠</div>
+            <h3 class="project-title">
+              <a href="https://www.realhousekraft.co" target="_blank"
+                >Housekraft</a
+              >
+            </h3>
+            <p class="project-description">
+              AI-powered interior design assistant using Flask, JS,
+              InstructPix2Pix, Stripe, and double-entry systems. Transform your
+              space with intelligent design recommendations.
+            </p>
+          </div>
 
-    <section>
-      <h2 class="section-title">🛠️ Skills</h2>
-      <ul>
-        <li><strong>Languages:</strong> Python, C++, JavaScript</li>
-        <li><strong>Frontend:</strong> React, TailwindCSS, Bootstrap</li>
-        <li><strong>Backend:</strong> Flask, Node.js</li>
-        <li><strong>ML/CV:</strong> PyTorch, OpenCV, MediaPipe, Transformers</li>
-        <li><strong>Databases:</strong> PostgreSQL, Elasticsearch, Double-entry systems</li>
-        <li><strong>DevOps:</strong> Ubuntu, NGINX, Gunicorn, Systemd</li>
-      </ul>
-    </section>
+          <div class="project-card">
+            <div class="project-icon">🧥</div>
+            <h3 class="project-title">
+              <a href="https://www.wear-what.com" target="_blank">WearWhat</a>
+            </h3>
+            <p class="project-description">
+              Live virtual try-on, add your photo or take the photos on fly and
+              Get the instant results. Built with Flask, OpenCV, and
+              double-entry logging for seamless fashion visualization.
+            </p>
+          </div>
 
-    <section>
-      <h2 class="section-title">📫 Contact</h2>
-      <p>Email: <a href="mailto:walia.saksham707@gmail.com">walia.saksham707.com</a></p>
-      <p>LinkedIn: <a href="https://www.linkedin.com/in/saksham-walia-69597431a/" target="_blank">linkedin.com/in/sakshamwalia</a></p>
-      <p>Portfolio: <a href="https://yourwebsite.com" target="_blank">yourwebsite.com</a></p>
-    </section>
-  </div>
+          <div class="project-card">
+            <div class="project-icon">📦</div>
+            <h3 class="project-title">
+              <a href="https://www.off-l.in" target="_blank">OFFLIN</a>
+            </h3>
+            <p class="project-description">
+              All-in-one media downloader using Flask and Selenium. Supports
+              multiple platforms including Instagram and Twitter with
+              lightning-fast processing.
+            </p>
+          </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+          <div class="project-card">
+            <div class="project-icon">🛍</div>
+            <h3 class="project-title">
+              <a href="https://www.helpbuy.in" target="_blank">HelpBuy</a>
+            </h3>
+            <p class="project-description">
+              Smart product research assistant. Make informed purchasing
+              decisions with content and personalized quizez.
+            </p>
+          </div>
+
+          <div class="project-card">
+            <div class="project-icon">🧠</div>
+            <h3 class="project-title">
+              <a href="https://app.omptpro" target="_blank">Prompt Enhancer</a>
+            </h3>
+            <p class="project-description">
+              AI prompt optimizer with Elasticsearch and analytics.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section fade-in" id="tech">
+        <h2 class="section-title">⚙️ Technology Arsenal</h2>
+        <div class="tech-grid">
+          <div class="tech-category">
+            <h3>Languages & Core</h3>
+            <ul class="tech-list">
+              <li>Python</li>
+              <li>C++</li>
+              <li>JavaScript</li>
+            </ul>
+          </div>
+
+          <div class="tech-category">
+            <h3>Frontend Development</h3>
+            <ul class="tech-list">
+              <li>Bootstrap</li>
+              <li>TailwindCSS</li>
+              <li>Modern CSS</li>
+            </ul>
+          </div>
+
+          <div class="tech-category">
+            <h3>Backend & APIs</h3>
+            <ul class="tech-list">
+              <li>Flask</li>
+              <li>RESTful APIs</li>
+            </ul>
+          </div>
+
+          <div class="tech-category">
+            <h3>AI & Machine Learning</h3>
+            <ul class="tech-list">
+              <li>PyTorch</li>
+              <li>OpenCV</li>
+            </ul>
+          </div>
+
+          <div class="tech-category">
+            <h3>Databases & Storage</h3>
+            <ul class="tech-list">
+              <li>PostgreSQL</li>
+              <li>Elasticsearch</li>
+              <li>Double-entry Systems</li>
+            </ul>
+          </div>
+
+          <div class="tech-category">
+            <h3>DevOps & Infrastructure</h3>
+            <ul class="tech-list">
+              <li>Ubuntu VPS</li>
+              <li>NGINX</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section fade-in" id="contact">
+        <div class="contact-section">
+          <h2 class="section-title">📫 Let's Connect</h2>
+          <p
+            style="
+              font-size: 1.2rem;
+              color: var(--text-secondary);
+              margin-bottom: 2rem;
+            "
+          >
+            Ready to bring your ideas to life? Let's collaborate on something
+            amazing.
+          </p>
+          <div class="contact-links">
+            <a href="mailto:walia.saksham707@gmail.com" class="contact-link"
+              >Email Me</a
+            >
+            <a
+              href="https://www.linkedin.com/in/saksham-walia-69597431a/"
+              target="_blank"
+              class="contact-link"
+              >LinkedIn</a
+            >
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="footer">
+      <div class="container">
+        <p>
+          &copy; 2025 Saksham Walia. Crafted with passion and cutting-edge
+          technology ✨
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      // Smooth scrolling for navigation links
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener("click", function (e) {
+          e.preventDefault();
+          const target = document.querySelector(this.getAttribute("href"));
+          if (target) {
+            target.scrollIntoView({
+              behavior: "smooth",
+              block: "start",
+            });
+          }
+        });
+      });
+
+      // Navbar scroll effect
+      const navbar = document.getElementById("navbar");
+      window.addEventListener("scroll", () => {
+        if (window.scrollY > 100) {
+          navbar.classList.add("scrolled");
+        } else {
+          navbar.classList.remove("scrolled");
+        }
+      });
+
+      // Scroll progress indicator
+      const scrollIndicator = document.getElementById("scrollIndicator");
+      window.addEventListener("scroll", () => {
+        const scrollTop = window.pageYOffset;
+        const docHeight = document.body.offsetHeight - window.innerHeight;
+        const scrollPercent = scrollTop / docHeight;
+        scrollIndicator.style.transform = `scaleX(${scrollPercent})`;
+      });
+
+      // Intersection Observer for fade-in animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px",
+      };
+
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+          }
+        });
+      }, observerOptions);
+
+      // Observe all fade-in elements
+      document.querySelectorAll(".fade-in").forEach((el) => {
+        observer.observe(el);
+      });
+
+      // Add stagger animation to project cards
+      const projectCards = document.querySelectorAll(".project-card");
+      projectCards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.1}s`;
+        card.style.animation = "fadeInUp 0.6s ease-out forwards";
+      });
+
+      // Parallax effect for hero section
+      window.addEventListener("scroll", () => {
+        const scrolled = window.pageYOffset;
+        const hero = document.querySelector(".hero-content");
+        if (hero) {
+          hero.style.transform = `translateY(${scrolled * 0.3}px)`;
+        }
+      });
+
+      // Add hover effects to tech categories
+      const techCategories = document.querySelectorAll(".tech-category");
+      techCategories.forEach((category) => {
+        category.addEventListener("mouseenter", () => {
+          category.style.transform = "translateY(-5px) scale(1.02)";
+        });
+
+        category.addEventListener("mouseleave", () => {
+          category.style.transform = "translateY(0) scale(1)";
+        });
+      });
+    </script>
+  </body>
 </html>
-
