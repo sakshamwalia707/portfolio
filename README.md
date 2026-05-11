@@ -1,91 +1,78 @@
-# 👋 Hi, I'm SAKSHAM WALIA
+<h1 align="center">Hi, I'm Saksham Walia 👋</h1>
 
-Welcome to my GitHub portfolio! I'm a full-stack developer and AI enthusiast passionate about building practical and powerful applications. My work spans web development, computer vision, prompt engineering tools, and backend infrastructure.
+<p align="center">
+  Software Engineer · AI SaaS · Backend & DevOps · Chandigarh, India
+</p>
 
----
-
-## 🚀 Projects
-
-### 🏠 [Housekraft](https://www.realhousekraft.co)
-AI-powered interior design assistant.    
-**Highlights:**
-- Upload room photos and visualize them in various design styles.
-- Google OAuth, Stripe-based credit system, and fast model inference.
-- Implements a **double-entry database system** for tracking user actions, credits, and usage logs.
+<p align="center">
+  <a href="mailto:walias2352@gmail.com">walias2352@gmail.com</a> ·
+  <a href="https://www.housekraft.co">housekraft.co</a>
+</p>
 
 ---
 
-### 🧥 [WearWhat](https://www.wear-what.com)
-Live virtual try-on system with clothing overlay.  
-**Tech Stack:** Flask, JS, OpenCV, MediaPipe  
-**Highlights:**
-- Real-time camera feed and AI-powered outfit try-on experience.
-- Pose detection for intelligent clothing alignment.
-- Built-in **double-entry database** system for secure logging of sessions and outfits.
+### 🚀 Featured Project — Housekraft
+
+> AI-powered interior design SaaS · **200+ active users** · [housekraft.co](https://www.housekraft.co)
+
+- 15+ AI transformation features: room staging, 3D dollhouse renders, 360° panoramas, walkthrough videos, image upscaling, and floorplan-to-render pipelines
+- Full subscription billing stack — webhook signature verification, double-entry PostgreSQL credit ledger, multi-tier plans
+- Cloud CDN storage with tier-based access control and watermarking
+- Deployed on Ubuntu with Gunicorn + Nginx + Systemd · CSP / CSRF / CORS hardened
+- Multi-platform: Web app + Telegram bot + X (Twitter) bot
 
 ---
 
-### 📦 [OFFLIN](https://www.off-l.in)
-Multi-platform social media downloader.  
-**Tech Stack:** Selenium ,flask and JS  
-**Highlights:**
-- Supports Instagram, Twitter, Facebook, and more.
-- Fast, user-friendly frontend with automated download extraction.
-- Deployed on Ubuntu with full server configuration.
+### 🛠 Tech Stack
+
+**Languages**
+
+![Python](https://img.shields.io/badge/Python-3776AB?style=flat&logo=python&logoColor=white)
+![Java](https://img.shields.io/badge/Java-ED8B00?style=flat&logo=openjdk&logoColor=white)
+![C++](https://img.shields.io/badge/C++-00599C?style=flat&logo=cplusplus&logoColor=white)
+![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black)
+![SQL](https://img.shields.io/badge/SQL-4479A1?style=flat&logo=postgresql&logoColor=white)
+
+**Backend & Web**
+
+![Flask](https://img.shields.io/badge/Flask-000000?style=flat&logo=flask&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=flat&logo=fastapi&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-316192?style=flat&logo=postgresql&logoColor=white)
+![REST API](https://img.shields.io/badge/REST_APIs-FF6C37?style=flat)
+
+**DevOps & Cloud**
+
+![Linux](https://img.shields.io/badge/Ubuntu-E95420?style=flat&logo=ubuntu&logoColor=white)
+![Nginx](https://img.shields.io/badge/Nginx-009639?style=flat&logo=nginx&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat&logo=docker&logoColor=white)
+![Git](https://img.shields.io/badge/Git-F05032?style=flat&logo=git&logoColor=white)
 
 ---
 
-### 🛍 [HelpBuy](https://www.helpbuy.in)
-Smart product comparison and research assistant.    
-**Highlights:**
-- Extracts and compares product data from multiple platforms.
-- Helps users make informed purchasing decisions quickly.
+### 📊 GitHub Stats
+
+<p align="center">
+  <img src="https://github-readme-stats.vercel.app/api?username=sakshamwalia707&show_icons=true&theme=default&hide_border=true&include_all_commits=true&count_private=true" height="150"/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=sakshamwalia707&layout=compact&theme=default&hide_border=true" height="150"/>
+</p>
 
 ---
 
-### 🧠 [Prompt Enhancer – app.omptpro](https://app.omptpro)
-Tool for refining and optimizing prompts for LLMs and generative AI workflows.  
-**Tech Stack:** Flask, TailwindCSS, Jinja2  
-**Highlights:**
-- Suggests improvements, completions, and rewrites of user prompts.
-- Uses **Elasticsearch** for storing and querying prompt history and performance metrics.
-- Advanced logging and analytics system with prompt version tracking.
+### 🏆 Competitive Programming
 
-
----
-
-## ⚙️ Deployment & DevOps
-
-All the listed applications are deployed on **Ubuntu servers** with full-stack production setup:
-
-- **Ubuntu VPS hosting**
-- **NGINX** as a reverse proxy for load handling and HTTPS
-- **Gunicorn** for Python WSGI app serving
-- **Domain ↔ IP mapping** for all custom URLs
-- **Let's Encrypt SSL Certificates** via Certbot
-- **Systemd** for process monitoring and restart
-- **Database Management**: PostgreSQL, Firebase, Elasticsearch, and custom double-entry logging systems
+| Platform | Rating / Status |
+|----------|----------------|
+| LeetCode | **1521** — 700+ problems solved |
+| CodeChef | **1603** — 3 Star |
+| Codeforces | **1174** |
 
 ---
 
-## 🛠️ Skills
+### 📂 Other Projects
 
-- **Languages:** Python, C++, JavaScript
-- **Frontend:**  TailwindCSS, HTML/CSS
-- **Backend:** Flask,
-- **AI/ML:** OpenCV, PyTorch, Transformers, InstructPix2Pix, MediaPipe
-- **Databases:** PostgreSQL, Firebase, Elasticsearch, Custom Double-entry Systems
-- **DevOps:** Ubuntu, NGINX, Gunicorn, Systemd, SSL, GitHub Actions
-
----
-
-## 📫 Contact Me
-
-- 📧 Email: [your@email.com]
-- 🔗 LinkedIn: [linkedin.com/in/yourprofile](https://linkedin.com/in/yourprofile)
-- 🌐 Portfolio: [yourwebsite.com](https://yourwebsite.com)
-
----
-
-> Thanks for checking out my portfolio. I'm always excited to collaborate or take on interesting problems — feel free to reach out!
-
+| Project | Stack | Description |
+|---------|-------|-------------|
+| Quotation & Template System | Flask · PostgreSQL · GrapesJS | Drag-and-drop PDF quotation builder with Telegram NLP integration |
+| Social Media Downloader | Python · REST APIs | Multi-platform content downloader (Instagram / X / LinkedIn) |
+| Phosphorescence Analyser | Python · OpenCV | Optical decay curve measurement pipeline with ROI tracking |
+| Real-time Transcription | Python · Whisper | Low-latency speech-to-text pipeline |
