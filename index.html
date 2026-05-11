@@ -34,7 +34,6 @@
         line-height: 1.6;
       }
 
-      /* Animated Background */
       .bg-animation {
         position: fixed;
         top: 0;
@@ -73,31 +72,17 @@
       }
 
       @keyframes gradientShift {
-        0% {
-          background-position: 0% 50%;
-        }
-        50% {
-          background-position: 100% 50%;
-        }
-        100% {
-          background-position: 0% 50%;
-        }
+        0% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
+        100% { background-position: 0% 50%; }
       }
 
       @keyframes float {
-        0%,
-        100% {
-          transform: translateY(0px) rotate(0deg);
-        }
-        33% {
-          transform: translateY(-30px) rotate(1deg);
-        }
-        66% {
-          transform: translateY(-15px) rotate(-1deg);
-        }
+        0%, 100% { transform: translateY(0px) rotate(0deg); }
+        33% { transform: translateY(-30px) rotate(1deg); }
+        66% { transform: translateY(-15px) rotate(-1deg); }
       }
 
-      /* Navigation */
       .navbar {
         position: fixed;
         top: 0;
@@ -147,9 +132,7 @@
         position: relative;
       }
 
-      .nav-links a:hover {
-        color: var(--text-primary);
-      }
+      .nav-links a:hover { color: var(--text-primary); }
 
       .nav-links a::after {
         content: "";
@@ -162,11 +145,8 @@
         transition: width 0.3s ease;
       }
 
-      .nav-links a:hover::after {
-        width: 100%;
-      }
+      .nav-links a:hover::after { width: 100%; }
 
-      /* Hero Section */
       .hero {
         min-height: 100vh;
         display: flex;
@@ -237,27 +217,18 @@
         left: -100%;
         width: 100%;
         height: 100%;
-        background: linear-gradient(
-          90deg,
-          transparent,
-          rgba(255, 255, 255, 0.2),
-          transparent
-        );
+        background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
         transition: left 0.5s ease;
       }
 
-      .cta-button:hover::before {
-        left: 100%;
-      }
+      .cta-button:hover::before { left: 100%; }
 
-      /* Container */
       .container {
         max-width: 1200px;
         margin: 0 auto;
         padding: 0 2rem;
       }
 
-      /* Section Styles */
       .section {
         padding: 6rem 0;
         position: relative;
@@ -274,7 +245,6 @@
         background-clip: text;
       }
 
-      /* Projects Grid */
       .projects-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -291,7 +261,6 @@
         transition: all 0.3s ease;
         position: relative;
         overflow: hidden;
-        group: hover;
       }
 
       .project-card::before {
@@ -312,9 +281,7 @@
         border-color: rgba(255, 255, 255, 0.2);
       }
 
-      .project-card:hover::before {
-        transform: scaleX(1);
-      }
+      .project-card:hover::before { transform: scaleX(1); }
 
       .project-icon {
         font-size: 2.5rem;
@@ -322,10 +289,23 @@
         display: block;
       }
 
+      .project-badge {
+        display: inline-block;
+        font-size: 0.72rem;
+        font-weight: 600;
+        padding: 0.2rem 0.65rem;
+        border-radius: 20px;
+        background: linear-gradient(135deg, rgba(79,172,254,0.15), rgba(0,242,254,0.15));
+        border: 1px solid rgba(79,172,254,0.3);
+        color: #4facfe;
+        margin-bottom: 0.75rem;
+        letter-spacing: 0.04em;
+      }
+
       .project-title {
         font-size: 1.4rem;
         font-weight: 700;
-        margin-bottom: 1rem;
+        margin-bottom: 0.5rem;
         color: var(--text-primary);
       }
 
@@ -348,7 +328,6 @@
         font-size: 0.95rem;
       }
 
-      /* Tech Stack */
       .tech-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -391,15 +370,9 @@
         transition: color 0.3s ease;
       }
 
-      .tech-list li:hover {
-        color: var(--text-primary);
-      }
+      .tech-list li:hover { color: var(--text-primary); }
+      .tech-list li:last-child { border-bottom: none; }
 
-      .tech-list li:last-child {
-        border-bottom: none;
-      }
-
-      /* Contact Section */
       .contact-section {
         text-align: center;
         background: var(--card-bg);
@@ -436,7 +409,6 @@
         box-shadow: 0 10px 20px rgba(79, 172, 254, 0.3);
       }
 
-      /* Footer */
       .footer {
         text-align: center;
         padding: 3rem 0;
@@ -444,16 +416,9 @@
         color: var(--text-secondary);
       }
 
-      /* Animations */
       @keyframes fadeInUp {
-        from {
-          opacity: 0;
-          transform: translateY(30px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
+        from { opacity: 0; transform: translateY(30px); }
+        to { opacity: 1; transform: translateY(0); }
       }
 
       .fade-in {
@@ -467,35 +432,15 @@
         transform: translateY(0);
       }
 
-      /* Responsive Design */
       @media (max-width: 768px) {
-        .nav-links {
-          display: none;
-        }
-
-        .projects-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .tech-grid {
-          grid-template-columns: 1fr;
-        }
-
-        .contact-links {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .hero {
-          padding: 2rem 1rem;
-        }
-
-        .section {
-          padding: 4rem 0;
-        }
+        .nav-links { display: none; }
+        .projects-grid { grid-template-columns: 1fr; }
+        .tech-grid { grid-template-columns: 1fr; }
+        .contact-links { flex-direction: column; align-items: center; }
+        .hero { padding: 2rem 1rem; }
+        .section { padding: 4rem 0; }
       }
 
-      /* Scroll indicator */
       .scroll-indicator {
         position: fixed;
         top: 0;
@@ -529,12 +474,10 @@
       <div class="hero-content">
         <h1 class="hero-title">Hi, I'm Saksham Walia</h1>
         <p class="hero-subtitle">
-          Full-stack Developer • AI Models and API • Competetive Programmer •
-          Ubuntu Server (Dev DevOps)
+          Full-Stack Developer &bull; AI SaaS Builder &bull; Competitive Programmer &bull; Linux DevOps
         </p>
         <p class="hero-description">
-          Crafting exceptional digital experiences with cutting-edge technology
-          and innovative solutions
+          I build and ship production AI products end-to-end — from database schema and REST APIs to server deployment and billing infrastructure.
         </p>
         <a href="#projects" class="cta-button">Explore My Work</a>
       </div>
@@ -544,17 +487,15 @@
       <section class="section fade-in" id="projects">
         <h2 class="section-title">🚀 Featured Projects</h2>
         <div class="projects-grid">
+
           <div class="project-card">
             <div class="project-icon">🏠</div>
+            <div class="project-badge">200+ Active Users · Live</div>
             <h3 class="project-title">
-              <a href="https://www.housekraft.co" target="_blank"
-                >Housekraft</a
-              >
+              <a href="https://www.housekraft.co" target="_blank">Housekraft</a>
             </h3>
             <p class="project-description">
-              AI-powered interior design assistant using Flask, JS,
-              InstructPix2Pix, Stripe, and double-entry systems. Transform your
-              space with intelligent design recommendations.
+              AI-powered interior design SaaS with 15+ transformation features — room staging, 3D dollhouse renders, 360° panoramas, walkthrough videos, image upscaling, and floorplan-to-render pipelines. Built on Flask with a PostgreSQL double-entry credit ledger, full Paddle subscription billing (webhook signature verification, multi-tier plans), DigitalOcean Spaces CDN with tier-based access control, and CSP / CSRF / CORS security hardening. Deployed on Ubuntu with Gunicorn + Nginx + Systemd.
             </p>
           </div>
 
@@ -564,9 +505,7 @@
               <a href="https://www.wear-what.com" target="_blank">WearWhat</a>
             </h3>
             <p class="project-description">
-              Live virtual try-on, add your photo or take the photos on fly and
-              Get the instant results. Built with Flask, OpenCV, and
-              double-entry logging for seamless fashion visualization.
+              Live virtual try-on — upload a photo or capture one on the fly and get instant results. Built with Flask and OpenCV for seamless fashion visualisation.
             </p>
           </div>
 
@@ -576,9 +515,7 @@
               <a href="https://www.off-l.in" target="_blank">OFFLIN</a>
             </h3>
             <p class="project-description">
-              All-in-one media downloader using Flask and Selenium. Supports
-              multiple platforms including Instagram and Twitter with
-              lightning-fast processing.
+              All-in-one media downloader using Flask and Selenium. Supports Instagram, Twitter, and more with lightning-fast processing.
             </p>
           </div>
 
@@ -588,8 +525,7 @@
               <a href="https://www.helpbuy.in" target="_blank">HelpBuy</a>
             </h3>
             <p class="project-description">
-              Smart product research assistant. Make informed purchasing
-              decisions with content and personalized quizez.
+              Smart product research assistant. Make informed purchasing decisions with curated content and personalised quizzes.
             </p>
           </div>
 
@@ -599,46 +535,46 @@
               <a href="https://app.omptpro" target="_blank">Prompt Enhancer</a>
             </h3>
             <p class="project-description">
-              AI prompt optimizer with Elasticsearch and analytics.
+              AI prompt optimiser with Elasticsearch-backed analytics and iteration tracking.
             </p>
           </div>
+
         </div>
       </section>
 
       <section class="section fade-in" id="tech">
         <h2 class="section-title">⚙️ Technology Arsenal</h2>
         <div class="tech-grid">
+
           <div class="tech-category">
             <h3>Languages & Core</h3>
             <ul class="tech-list">
               <li>Python</li>
+              <li>Java</li>
               <li>C++</li>
               <li>JavaScript</li>
-            </ul>
-          </div>
-
-          <div class="tech-category">
-            <h3>Frontend Development</h3>
-            <ul class="tech-list">
-              <li>Bootstrap</li>
-              <li>TailwindCSS</li>
-              <li>Modern CSS</li>
+              <li>SQL / Bash</li>
             </ul>
           </div>
 
           <div class="tech-category">
             <h3>Backend & APIs</h3>
             <ul class="tech-list">
-              <li>Flask</li>
+              <li>Flask (Blueprint architecture)</li>
+              <li>FastAPI</li>
               <li>RESTful APIs</li>
+              <li>Paddle Billing & Webhooks</li>
+              <li>GrapesJS</li>
             </ul>
           </div>
 
           <div class="tech-category">
-            <h3>AI & Machine Learning</h3>
+            <h3>AI & Integrations</h3>
             <ul class="tech-list">
-              <li>PyTorch</li>
+              <li>Generative AI APIs (image, video)</li>
+              <li>PyTorch / TensorFlow</li>
               <li>OpenCV</li>
+              <li>OpenAI Whisper</li>
             </ul>
           </div>
 
@@ -647,43 +583,44 @@
             <ul class="tech-list">
               <li>PostgreSQL</li>
               <li>Elasticsearch</li>
-              <li>Double-entry Systems</li>
+              <li>MySQL / SQLite</li>
+              <li>Cloud Object Storage (S3/CDN)</li>
             </ul>
           </div>
 
           <div class="tech-category">
             <h3>DevOps & Infrastructure</h3>
             <ul class="tech-list">
-              <li>Ubuntu VPS</li>
-              <li>NGINX</li>
+              <li>Ubuntu VPS + Systemd</li>
+              <li>Nginx + Gunicorn</li>
+              <li>Docker</li>
+              <li>Git</li>
+              <li>Selenium</li>
             </ul>
           </div>
+
+          <div class="tech-category">
+            <h3>Frontend</h3>
+            <ul class="tech-list">
+              <li>Bootstrap</li>
+              <li>TailwindCSS</li>
+              <li>Modern CSS / Vanilla JS</li>
+            </ul>
+          </div>
+
         </div>
       </section>
 
       <section class="section fade-in" id="contact">
         <div class="contact-section">
           <h2 class="section-title">📫 Let's Connect</h2>
-          <p
-            style="
-              font-size: 1.2rem;
-              color: var(--text-secondary);
-              margin-bottom: 2rem;
-            "
-          >
-            Ready to bring your ideas to life? Let's collaborate on something
-            amazing.
+          <p style="font-size: 1.2rem; color: var(--text-secondary); margin-bottom: 2rem;">
+            Ready to bring your ideas to life? Let's collaborate on something amazing.
           </p>
           <div class="contact-links">
-            <a href="mailto:walia.saksham.707@gmail.com" class="contact-link"
-              >Email Me</a
-            >
-            <a
-              href="https://www.linkedin.com/in/saksham-walia-69597431a/"
-              target="_blank"
-              class="contact-link"
-              >LinkedIn</a
-            >
+            <a href="mailto:walia.saksham.707@gmail.com" class="contact-link">Email Me</a>
+            <a href="https://www.linkedin.com/in/saksham-walia-69597431a/" target="_blank" class="contact-link">LinkedIn</a>
+            <a href="https://github.com/sakshamwalia707" target="_blank" class="contact-link">GitHub</a>
           </div>
         </div>
       </section>
@@ -691,92 +628,51 @@
 
     <footer class="footer">
       <div class="container">
-        <p>
-          &copy; 2025 Saksham Walia. Crafted with passion and cutting-edge
-          technology ✨
-        </p>
+        <p>&copy; 2025 Saksham Walia. Crafted with passion and cutting-edge technology ✨</p>
       </div>
     </footer>
 
     <script>
-      // Smooth scrolling for navigation links
       document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
         anchor.addEventListener("click", function (e) {
           e.preventDefault();
           const target = document.querySelector(this.getAttribute("href"));
           if (target) {
-            target.scrollIntoView({
-              behavior: "smooth",
-              block: "start",
-            });
+            target.scrollIntoView({ behavior: "smooth", block: "start" });
           }
         });
       });
 
-      // Navbar scroll effect
       const navbar = document.getElementById("navbar");
       window.addEventListener("scroll", () => {
-        if (window.scrollY > 100) {
-          navbar.classList.add("scrolled");
-        } else {
-          navbar.classList.remove("scrolled");
-        }
+        navbar.classList.toggle("scrolled", window.scrollY > 100);
       });
 
-      // Scroll progress indicator
       const scrollIndicator = document.getElementById("scrollIndicator");
       window.addEventListener("scroll", () => {
-        const scrollTop = window.pageYOffset;
-        const docHeight = document.body.offsetHeight - window.innerHeight;
-        const scrollPercent = scrollTop / docHeight;
+        const scrollPercent = window.pageYOffset / (document.body.offsetHeight - window.innerHeight);
         scrollIndicator.style.transform = `scaleX(${scrollPercent})`;
       });
 
-      // Intersection Observer for fade-in animations
-      const observerOptions = {
-        threshold: 0.1,
-        rootMargin: "0px 0px -50px 0px",
-      };
+      const observer = new IntersectionObserver(
+        (entries) => entries.forEach((e) => { if (e.isIntersecting) e.target.classList.add("visible"); }),
+        { threshold: 0.1, rootMargin: "0px 0px -50px 0px" }
+      );
+      document.querySelectorAll(".fade-in").forEach((el) => observer.observe(el));
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("visible");
-          }
-        });
-      }, observerOptions);
-
-      // Observe all fade-in elements
-      document.querySelectorAll(".fade-in").forEach((el) => {
-        observer.observe(el);
-      });
-
-      // Add stagger animation to project cards
-      const projectCards = document.querySelectorAll(".project-card");
-      projectCards.forEach((card, index) => {
-        card.style.animationDelay = `${index * 0.1}s`;
+      document.querySelectorAll(".project-card").forEach((card, i) => {
+        card.style.animationDelay = `${i * 0.1}s`;
         card.style.animation = "fadeInUp 0.6s ease-out forwards";
       });
 
-      // Parallax effect for hero section
       window.addEventListener("scroll", () => {
-        const scrolled = window.pageYOffset;
         const hero = document.querySelector(".hero-content");
-        if (hero) {
-          hero.style.transform = `translateY(${scrolled * 0.3}px)`;
-        }
+        if (hero) hero.style.transform = `translateY(${window.pageYOffset * 0.3}px)`;
       });
 
-      // Add hover effects to tech categories
-      const techCategories = document.querySelectorAll(".tech-category");
-      techCategories.forEach((category) => {
-        category.addEventListener("mouseenter", () => {
-          category.style.transform = "translateY(-5px) scale(1.02)";
-        });
-
-        category.addEventListener("mouseleave", () => {
-          category.style.transform = "translateY(0) scale(1)";
-        });
+      document.querySelectorAll(".tech-category").forEach((cat) => {
+        cat.addEventListener("mouseenter", () => { cat.style.transform = "translateY(-5px) scale(1.02)"; });
+        cat.addEventListener("mouseleave", () => { cat.style.transform = "translateY(0) scale(1)"; });
       });
     </script>
   </body>
